@@ -278,7 +278,7 @@
 
                             <!-- /.package button -->
                             <div class="price-footer text-center">
-                                <a class="btn btn-price" href="#contact" ng-click="changeEmailSubject('Pacote Essencial')">Pedir</a>
+                                <a class="btn btn-price" href="#contact" ng-click="ChangeEmailSubject('Pacote Essencial')">Pedir</a>
                             </div>	
                         </div>
                     </div>
@@ -309,18 +309,18 @@
 
                             <!-- /.contact form -->
                             <div class="col-sm-7 contact-right">
-                                <form method="POST" id="contact-form" class="form-horizontal" action="contactengine.php" onSubmit="alert( 'Obrigado pelo contato!' );">
+                                <form class="form-horizontal">
                                     <div class="form-group">
-                                        <input type="text" name="Name" id="Name" class="form-control wow fadeInUp" placeholder="Nome" required/>
+                                        <input type="text" name="Name" id="Name" class="form-control wow fadeInUp" placeholder="Nome" required ng-model="emailDto.Name"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="Email" id="Email" class="form-control wow fadeInUp" placeholder="Email" required/>
+                                        <input type="text" name="Email" id="Email" class="form-control wow fadeInUp" placeholder="Email" required ng-model="emailDto.Email"/>
                                     </div>					
                                     <div class="form-group">
-                                        <textarea name="Message" rows="20" cols="20" id="Message" class="form-control input-message wow fadeInUp"  placeholder="Mensagem" required></textarea>
+                                        <textarea name="Message" rows="20" cols="20" id="Message" class="form-control input-message wow fadeInUp"  placeholder="Mensagem" required ng-model="emailDto.Message"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" name="submit" value="Enviar" class="btn btn-success wow fadeInUp" />
+                                        <input type="submit" name="submit" value="Enviar" class="btn btn-success wow fadeInUp" ng-click="SendEmail()" />
                                     </div>
                                 </form>		
                             </div>

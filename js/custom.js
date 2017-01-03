@@ -183,7 +183,7 @@ if(!$("html").hasClass("touch")){
 
 var ssApp = angular.module('ssApp', []);
 
-ssApp.controller('ssController', ['$scope', '$http', function ($scope, $http) {
+ssApp.controller('ssController', ['$scope', '$http', '$window', function ($scope, $http, $window) {
 
     $scope.emailDto = {
         Name: '',
