@@ -208,8 +208,7 @@ ssApp.controller('ssController', ['$scope', '$http', '$window', function ($scope
                 Message: ''
             };        
 
-            $window.location.href = '/contactthanks.html';
-
+            $window.location.href = '/SimpleSeller/contactthanks.html';
         })
         .error(function(data){            
 
