@@ -180,3 +180,46 @@ if(!$("html").hasClass("touch")){
     $(window).scroll(parallaxPosition);
     parallaxPosition();
 }
+
+var ssApp = angular.module('ssApp', []);
+
+ssApp.controller('ssController', ['$scope', '$http', function ($scope, $http) {
+
+    $scope.emailDto = {
+        Name: '',
+        Email: '',
+        Subject: 'Trial',
+        Message: ''
+    };
+
+    $scope.SendEmail = sendEmail;
+    $scope.ChangeEmailSubject = changeEmailSubject;
+
+    function sendEmail() {
+        $scope.sendingEmail = true;
+
+        $http.post('http://simpleselleremailsender.azurewebsites.net/api/sendemail', $scope.emailDto)
+        .success(function(data) {        
+                        
+            $scope.emailDto = {
+                Name: '',
+                Email: '',
+                Subject: 'Trial',
+                Message: ''
+            };        
+
+            $window.location.href = '/contactthanks.html';
+
+        })
+        .error(function(data){            
+
+        }) 
+        .finally(function() {            
+            $scope.sendingEmail = false;
+        });      
+    }
+
+    function changeEmailSubject(emailSubject) {
+        $scope.emailDto.Subject = emailSubject;
+    }
+}]);
